@@ -2,7 +2,8 @@
 #include <stdint.h>
 #include "string.h"
 
-void memmove(void *dst, const void *src, size_t n) {
+void memmove(void *dst, const void *src, size_t n)
+{
   char *d = dst;
   const char *s = src;
 
@@ -18,7 +19,8 @@ void memmove(void *dst, const void *src, size_t n) {
   }
 }
 
-void memset(void *dst, int c, size_t n) {
+void memset(void *dst, int c, size_t n)
+{
   char *d = dst;
 
   do {
@@ -26,7 +28,8 @@ void memset(void *dst, int c, size_t n) {
   } while (--n);
 }
 
-void itoa(int n, char *str) {
+void itoa(int n, char *str)
+{
   int i, sign;
 
   if ((sign = n) < 0) {
@@ -47,7 +50,8 @@ void itoa(int n, char *str) {
   reverse(str);
 }
 
-void reverse(char *str) {
+void reverse(char *str)
+{
   char c;
 
   for (int i = 0, j = strlen(str) - 1; i < j; i++, j--) {
@@ -57,7 +61,8 @@ void reverse(char *str) {
   }
 }
 
-size_t strlen(char *str) {
+size_t strlen(char *str)
+{
   int len = 0;
 
   for (int i = 0; str[i] != 0; i++) {

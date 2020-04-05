@@ -21,14 +21,16 @@ static size_t row = 0;
 
 static struct vga_char *vga_mem = (struct vga_char *)0xb8000;
 
-void vga_puts(char *str) {
+void vga_puts(char *str)
+{
   for (; *str; str++) {
     vga_putc(*str);
   }
   vga_update_cursor();
 }
 
-void vga_clear() {
+void vga_clear()
+{
   for (size_t i = 0; i < (VGA_COLS * VGA_ROWS); i++) {
     vga_mem[i].c = ' ';
     vga_mem[i].attr = 0x0f;
@@ -38,7 +40,8 @@ void vga_clear() {
   vga_update_cursor();
 }
 
-static void vga_putc(char c) {
+static void vga_putc(char c)
+{
   if (c == '\n') {
     row++;
     col = 0;
@@ -64,7 +67,8 @@ static void vga_putc(char c) {
   }
 }
 
-static void vga_update_cursor(void) {
+static void vga_update_cursor(void)
+{
   size_t pos = row * VGA_COLS + col;
 
   outb(VGA_PORT, 0x0e);
